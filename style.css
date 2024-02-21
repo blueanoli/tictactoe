@@ -5,6 +5,7 @@ body {
     min-height: 100vh; 
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 h1 {
     text-align: center;
@@ -20,17 +21,22 @@ h1 {
 table {
     border-collapse: separate;
     border-spacing: 0;
-    margin: 20px auto; 
+    margin: 0;
 }
 
 th, td {
     border: 5px solid white; 
-    width: 50px;
-    height: 50px;
+    width: 120px;
+    height: 120px;
     text-align: center;
     font-size: 24px;
+    overflow: visible;
+    padding: 0;
+    cursor: pointer;
 }
-
+td:hover {
+    background-color: #4d4d4d;
+}
 /* Entfernt den äußeren Rahmen der Tabelle, indem er transparent gemacht wird */
 table, th:first-child, td:first-child {
     border-left: none;
