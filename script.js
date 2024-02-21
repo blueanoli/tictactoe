@@ -1,8 +1,9 @@
 let fields = [
-    null, 'circle', 'circle',
-    'cross', null, 'cross',
-    null, 'cross', null
+    null, null, null,
+    null, null, null,
+    null, null, null
 ];
+let currentPlayer = 'circle';
 
 function init(){
     render();
@@ -24,7 +25,8 @@ function render() {
                 cellValue = generateCrossSVG();
             }
 
-            tableHTML += `<td>${cellValue}</td>`;
+            // Hinzufügen des onclick-Attributs mit einer anonymen Funktion, die handleClick aufruft
+            tableHTML += `<td onclick="handleClick(${fieldIndex}, this)">${cellValue}</td>`;
         }
         tableHTML += '</tr>';
     }
@@ -32,6 +34,17 @@ function render() {
     tableHTML += '</table>';
 
     document.getElementById('content').innerHTML = tableHTML;
+}
+
+function handleClick(index, tdElement) {
+    if (fields[index] === null) { // Prüft, ob das Feld leer ist
+        fields[index] = currentPlayer; // Aktualisiert das Array mit dem aktuellen Spieler
+        tdElement.innerHTML = currentPlayer === 'circle' ? generateCircleSVG() : generateCrossSVG(); // Fügt den entsprechenden SVG-Code ein
+        tdElement.removeAttribute('onclick'); // Entfernt die onclick-Funktion
+
+        // Wechselt den Spieler für den nächsten Zug
+        currentPlayer = currentPlayer === 'circle' ? 'cross' : 'circle';
+    }
 }
 
 function generateCircleSVG() {
@@ -53,7 +66,6 @@ function generateCircleSVG() {
     return svgHTML;
 }
 
-
 function generateCrossSVG() {
     const svgHTML = `
     <svg width="70" height="70" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
@@ -68,4 +80,3 @@ function generateCrossSVG() {
 
     return svgHTML;
 }
-
