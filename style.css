@@ -1,0 +1,49 @@
+body {
+    background-color: #323232;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    min-height: 100vh; 
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 32px;
+}
+#content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px auto; 
+}
+
+th, td {
+    border: 5px solid white; 
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Entfernt den äußeren Rahmen der Tabelle, indem er transparent gemacht wird */
+table, th:first-child, td:first-child {
+    border-left: none;
+}
+
+th:last-child, td:last-child {
+    border-right: none;
+}
+
+tr:first-child th, tr:first-child td {
+    border-top: none;
+}
+
+tr:last-child th, tr:last-child td {
+    border-bottom: none;
+}
