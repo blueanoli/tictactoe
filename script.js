@@ -11,7 +11,7 @@ const winConditions = [
     [0, 4, 8], [2, 4, 6]            // Diagonalen
 ];
 
-function init(){
+function init() {
     render();
 }
 
@@ -36,7 +36,6 @@ function render() {
     }
 
     tableHTML += '</table>';
-
     document.getElementById('content').innerHTML = tableHTML;
 }
 
@@ -50,7 +49,7 @@ function handleClick(index, tdElement) {
             gameIsOver = true;
             drawWinLine(winningCondition); // Übergebe die Gewinnbedingung an drawWinLine
         } else {
-            currentPlayer = currentPlayer === 'circle' ? 'cross' : 'circle';
+            currentPlayer = currentPlayer === 'circle' ? 'cross' : 'circle'; // Wenn der aktuelle Spieler 'circle' ist dann ändere ihn zu 'cross' ansonsten zu 'circle'
         }
     }
 }

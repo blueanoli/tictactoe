@@ -16,8 +16,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: fit-content;
-    margin: 200px 0 0 0;
+    height: 60vh;
+    width: 100%;
 }
 table {
     border-collapse: separate;
@@ -53,7 +53,6 @@ tr:last-child th, tr:last-child td {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 48px;
 }
 button {
     padding: 10px 20px;
