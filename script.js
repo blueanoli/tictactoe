@@ -156,3 +156,10 @@ function drawWinLine(winCondition) {
     `;
     document.getElementById('content').innerHTML += svgLineHTML;
 }
+
+function restartGame() {
+    fields = Array(9).fill(null);
+    currentPlayer = 'circle';
+    gameIsOver = false;
+    render();
+}
