@@ -12,6 +12,20 @@ h1 {
     margin-top: 12px;
     font-size: 32px;
 }
+.player{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin: 32px 0;
+    width: 100%;
+}
+.active{
+    opacity: 1;
+}
+.not-active{
+    opacity: 0.2;
+}
 #content{
     display: flex;
     justify-content: center;
@@ -62,6 +76,7 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 32px;
 }
 button:hover {
     background-color: #666666;

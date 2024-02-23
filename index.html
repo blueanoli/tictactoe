@@ -11,6 +11,15 @@
 
 <body onload="init()">
     <h1>Tic Tac Toe</h1>
+    <div class="player">
+        <svg id="player1" class="active" width="70" height="70" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="43" cy="43" r="35" stroke="#00B0EF" stroke-width="8" fill="none" />
+        </svg>
+        <svg id="player2" class="not-active" width="70" height="70" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5,5 L65,65" stroke="#FFC000" stroke-width="8" fill="none" />
+            <path d="M65,5 L5,65" stroke="#FFC000" stroke-width="8" fill="none" />
+        </svg>
+    </div>
     <div id="content"></div>
     <div class="button-div">
         <button onclick="restartGame()">RESET GAME</button>

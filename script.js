@@ -44,15 +44,20 @@ function handleClick(index, tdElement) {
         fields[index] = currentPlayer;
         tdElement.innerHTML = currentPlayer === 'circle' ? generateCircleSVG() : generateCrossSVG();
 
-        const winningCondition = checkForWin(currentPlayer); // Überprüfe auf Gewinn und erhalte die Gewinnbedingung
+       
+
+        const winningCondition = checkForWin(currentPlayer);
         if (winningCondition) {
             gameIsOver = true;
-            drawWinLine(winningCondition); // Übergebe die Gewinnbedingung an drawWinLine
+            drawWinLine(winningCondition);
+            deactivatePlayer(); // Entferne alle Spieleraktivierungen, da das Spiel vorbei ist
         } else {
-            currentPlayer = currentPlayer === 'circle' ? 'cross' : 'circle'; // Wenn der aktuelle Spieler 'circle' ist dann ändere ihn zu 'cross' ansonsten zu 'circle'
+            currentPlayer = currentPlayer === 'circle' ? 'cross' : 'circle';
+            activatePlayer(currentPlayer); // Aktiviere den aktuellen Spieler
         }
     }
 }
+
 
 function checkForWin(player) {
     const winningCondition = winConditions.find(condition => condition.every(index => fields[index] === player));
@@ -160,5 +165,31 @@ function restartGame() {
     fields = Array(9).fill(null);
     currentPlayer = 'circle';
     gameIsOver = false;
+    activatePlayer(currentPlayer);
     render();
+}
+
+function activatePlayer(player) {
+    const player1Element = document.getElementById('player1');
+    const player2Element = document.getElementById('player2');
+
+    if (player === 'circle') {
+        player1Element.classList.add('active');
+        player1Element.classList.remove('not-active');
+        player2Element.classList.add('not-active');
+        player2Element.classList.remove('active');
+    } else if (player === 'cross') {
+        player2Element.classList.add('active');
+        player2Element.classList.remove('not-active');
+        player1Element.classList.add('not-active');
+        player1Element.classList.remove('active');
+    }
+}
+
+function deactivatePlayer() {
+    const player1Element = document.getElementById('player1');
+    const player2Element = document.getElementById('player2');
+
+    player1Element.classList.remove('active', 'not-active');
+    player2Element.classList.remove('active', 'not-active');
 }
